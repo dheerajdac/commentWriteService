@@ -14,11 +14,12 @@ services:
      # - PROFILE=production
       - MONGODB_NAME=admin
     networks:
+      - commentWriteService
       - kafka
         
     volumes:
       # Update this to wherever you want VS Code to mount the folder of your project
-      - ..:/workspace:cached
+      - ..:/commentWriteService:cached
       # Forwards the local Docker socket to the container.
       #- /var/run/docker.sock:/var/run/docker-host.sock 
       
@@ -40,6 +41,8 @@ services:
     # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
     # (Adding the "ports" property to this file will not forward from a Codespace.)
 networks:
+  commentWriteService:
+    name: commentWriteService
   kafka :
     external:
       name: kafka

@@ -1,0 +1,26 @@
+version: "3.5"
+
+services:
+  comment-write-service:
+    build: 
+      context: .
+      dockerfile: docker/Dockerfile
+      args:
+        # On Linux, you may need to update USER_UID and USER_GID below if not your local UID is not 1000.
+        #USER_UID: 1000
+        #USER_GID: 1000
+        TEST: 1000
+    container_name: comment-write-service
+    ports:
+      - "9031:9031"
+    environment:
+      - PROFILE=production
+    networks:
+      - commentWriteService
+      - kafka
+networks:
+  commentWriteService:
+    name: commentWriteService
+  kafka :
+    external:
+      name: kafka
