@@ -1,5 +1,6 @@
 package com.dheeraj.commentWriteService.model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import lombok.Data;
@@ -23,10 +24,10 @@ public class Comment {
 
     private String createdBy;
 
-    private Date createdOn;
+    private LocalDateTime createdOn;
 
     private boolean isEdited = false;
 
-    private Date lastModified;
+    private LocalDateTime lastModified;
     
 }

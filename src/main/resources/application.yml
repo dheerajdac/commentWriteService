@@ -1,5 +1,5 @@
 server:
-  port: 9031
+  port: 9995
 spring:
   kafka:
     producer:
